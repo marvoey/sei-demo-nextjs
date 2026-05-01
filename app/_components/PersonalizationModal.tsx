@@ -16,7 +16,16 @@ export default function PersonalizationModal({ show }: { show: boolean }) {
 
   const handleContinue = () => {
     if (!selected) return
-    startTransition(() => { chooseSegment(selected) })
+    const flash = document.createElement('div')
+    flash.className = 'page-flash'
+    document.body.appendChild(flash)
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        flash.classList.add('active')
+        sessionStorage.setItem('sei_morphed', '1')
+        setTimeout(() => startTransition(() => { chooseSegment(selected!) }), 380)
+      })
+    })
   }
 
   const close = () => setVisible(false)

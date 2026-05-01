@@ -4,17 +4,29 @@ interface HeroProps {
   subheadline: string
   bold?: boolean
   ctas?: React.ReactNode
+  genericHeadline?: string
+  genericSubheadline?: string
 }
 
-export default function Hero({ eyebrow, headline, subheadline, bold, ctas }: HeroProps) {
+export default function Hero({ eyebrow, headline, subheadline, bold, ctas, genericHeadline, genericSubheadline }: HeroProps) {
   return (
     <section className="hero">
       <div className="hero-bg-pattern" />
       <div className="hero-glow" />
       <div className="hero-content">
         {eyebrow && <div className="hero-eyebrow">{eyebrow}</div>}
-        <h1 className={`hero-headline${bold ? ' hero-headline--bold' : ''}`}>{headline}</h1>
-        <p className="hero-subheadline">{subheadline}</p>
+        <h1
+          className={`hero-headline${bold ? ' hero-headline--bold' : ''}`}
+          {...(genericHeadline ? { 'data-personalized': headline, 'data-generic': genericHeadline } : {})}
+        >
+          {headline}
+        </h1>
+        <p
+          className="hero-subheadline"
+          {...(genericSubheadline ? { 'data-personalized': subheadline, 'data-generic': genericSubheadline } : {})}
+        >
+          {subheadline}
+        </p>
         {ctas ?? (
           <a href="#" className="hero-cta">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ opacity: 0.7 }}>

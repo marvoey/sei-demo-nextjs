@@ -406,3 +406,106 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   to { opacity: 1; transform: translateY(0); }
 }
 .fade-in { animation: fadeIn .4s ease forwards; }
+
+/* ─── Scroll Progress Bar ─── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; width: 100%; height: 3px;
+  background: var(--red); transform-origin: left; transform: scaleX(0);
+  z-index: 9999; pointer-events: none;
+}
+
+/* ─── Nav Scroll ─── */
+.nav { transition: height 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease; }
+.nav--scrolled {
+  height: 52px !important;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  background: rgba(255,255,255,0.88) !important;
+  box-shadow: 0 1px 28px rgba(0,0,0,0.09);
+}
+
+/* ─── Hero Word Reveal ─── */
+.word-wrap { display: inline-block; overflow: hidden; line-height: 1.12; vertical-align: bottom; }
+.word { display: inline-block; transform: translateY(105%); opacity: 0; }
+.word-anim { animation: wordReveal 0.72s cubic-bezier(0.16,1,0.3,1) forwards; }
+@keyframes wordReveal { to { transform: translateY(0); opacity: 1; } }
+.hero-fade-up { opacity: 0; animation: heroFadeUp 0.65s cubic-bezier(0.16,1,0.3,1) forwards; }
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── 3D Scroll Reveals ─── */
+.sei-reveal {
+  opacity: 0;
+  transform: perspective(900px) rotateX(22deg) translateY(55px) scale(0.97);
+  transform-origin: top center;
+  transition: opacity 0.78s cubic-bezier(0.16,1,0.3,1), transform 0.82s cubic-bezier(0.16,1,0.3,1);
+}
+.sei-reveal.sei-revealed { opacity: 1; transform: perspective(900px) rotateX(0deg) translateY(0) scale(1); }
+.stagger-child { opacity: 0; transform: translateY(22px); transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1), transform 0.55s cubic-bezier(0.16,1,0.3,1); }
+.stagger-child.sei-revealed { opacity: 1; transform: translateY(0); }
+
+/* ─── Before/After Toggle ─── */
+.ba-toggle {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.65); font-size: 11px; font-family: inherit;
+  font-weight: 500; padding: 4px 11px 4px 8px; border-radius: 20px;
+  cursor: pointer; transition: all .2s; letter-spacing: .01em;
+}
+.ba-toggle:hover { background: rgba(255,255,255,.14); color: white; }
+.ba-toggle.ba-active { background: rgba(250,115,0,.18); border-color: rgba(250,115,0,.4); color: var(--orange); }
+.ba-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+/* ─── Page Morph Flash ─── */
+.page-flash { position: fixed; inset: 0; background: var(--red); z-index: 9000; opacity: 0; pointer-events: none; transition: opacity 0.28s ease; }
+.page-flash.active { opacity: 1; }
+
+/* ─── Spotlight Cursor Overlay ─── */
+.spotlight-cursor-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 2; opacity: 0; transition: opacity 0.5s ease; }
+.spotlight-cursor-overlay.sc-active { opacity: 1; }
+
+/* ─── Sticky Scroll Narrative ─── */
+.sticky-scroll-wrap { position: relative; height: 320vh; }
+.sticky-scroll-scene { position: sticky; top: 64px; }
+.know-pillar { perspective: 900px; transform-style: preserve-3d; will-change: transform, opacity; }
+
+/* ─── Card Deck Fan ─── */
+.suggested-card { will-change: transform, opacity; transform-origin: bottom center; }
+
+/* ─── Split Entrance ─── */
+.split-from-left {
+  opacity: 0; transform: translateX(-90px) rotateY(14deg) scale(0.95);
+  transform-origin: right center;
+  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1);
+}
+.split-from-right {
+  opacity: 0; transform: translateX(90px) rotateY(-14deg) scale(0.95);
+  transform-origin: left center;
+  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1) 0.14s, transform 0.85s cubic-bezier(0.16,1,0.3,1) 0.14s;
+}
+.split-from-left.split-revealed, .split-from-right.split-revealed { opacity: 1; transform: translateX(0) rotateY(0) scale(1); }
+
+/* ─── Glitch Effect ─── */
+@keyframes glitchAnim {
+  0%   { filter: none; transform: none; }
+  6%   { filter: hue-rotate(200deg) saturate(5) brightness(1.5); transform: translate(-4px,0); }
+  10%  { filter: none; transform: translate(4px,-2px); }
+  18%  { filter: none; transform: none; }
+  26%  { filter: hue-rotate(-100deg) contrast(2.2) brightness(1.3); transform: translate(3px,0); }
+  30%  { filter: none; transform: none; }
+  48%  { filter: none; transform: none; }
+  52%  { filter: hue-rotate(50deg) saturate(3) brightness(1.2); transform: translate(-3px,1px); }
+  56%  { filter: none; transform: none; }
+  72%  { filter: none; transform: none; }
+  76%  { filter: hue-rotate(180deg) saturate(2); transform: translate(2px,0); }
+  80%  { filter: none; transform: none; }
+  100% { filter: none; transform: none; }
+}
+.glitch-active { animation: glitchAnim 0.65s ease forwards; }
+
+/* ─── Magnetic / Parallax will-change ─── */
+.hero-cta-primary, .hero-cta, .spotlight-cta, .trusted-cta,
+.business-audit-cta, .modal-continue, .nav-contact { will-change: transform; }
+.hero-bg-pattern, .hero-content { will-change: transform; }
+.insight-card, .suggested-card, .know-pillar { will-change: transform; }

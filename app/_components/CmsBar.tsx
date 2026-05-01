@@ -21,6 +21,10 @@ export default function CmsBar({ segment, fetchMs }: Props) {
         <span className="cms-dot">·</span>
         <span className="cms-fetch">Content delivered in {fetchMs}ms</span>
         <div className="cms-bar-actions">
+          <button className="ba-toggle" data-ba-toggle="">
+            <span className="ba-dot" />
+            View: <span className="ba-state">Personalized</span>
+          </button>
           <button
             className="cms-change"
             onClick={() => startTransition(() => { clearSegment() })}

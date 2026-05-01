@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { VALID_SEGMENTS } from '@/lib/segments'
 import { fetchContent } from '@/lib/cms'
+import Animations from '../_components/Animations'
 import Nav from '../_components/Nav'
 import Footer from '../_components/Footer'
 import Hero from '../_components/Hero'
@@ -34,6 +35,8 @@ export default async function PersonalizedPage({
         headline={content.hero.headline}
         subheadline={content.hero.subheadline}
         bold={isBD}
+        genericHeadline="Grow your practice with confidence."
+        genericSubheadline="Explore integrated solutions designed for financial advisors at every stage."
         ctas={
           isBD ? (
             <a href="#" className="hero-cta-primary">Explore the case study &rarr;</a>
@@ -61,6 +64,7 @@ export default async function PersonalizedPage({
       {content.personalizationPrompt && <PersonalizeFurther data={content.personalizationPrompt} />}
       {content.businessAudit && <BusinessAudit data={content.businessAudit} />}
       <Footer />
+      <Animations personalized />
     </>
   )
 }

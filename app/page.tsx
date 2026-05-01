@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers'
+import Animations from './_components/Animations'
 import Nav from './_components/Nav'
 import Footer from './_components/Footer'
 import Hero from './_components/Hero'
@@ -43,6 +44,7 @@ export default async function Home() {
       <StayConnected />
       <Footer />
       <PersonalizationModal show={!segment} />
+      <Animations />
     </>
   )
 }
