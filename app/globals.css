@@ -210,12 +210,18 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ─── Get to Know SEI ─── */
 .know-sei { background: white; border-top: 1px solid var(--border); }
+.know-sei-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.know-sei-header .section-headline { margin-bottom: 0; }
 .know-sei-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--border); margin-top: 48px; }
-.know-pillar { padding: 40px 32px; border-right: 1px solid var(--border); }
+.know-pillar { position: relative; overflow: hidden; background: var(--bg-light); border-right: 1px solid var(--border); min-height: 340px; padding: 40px 32px; display: flex; flex-direction: column; justify-content: center; }
 .know-pillar:last-child { border-right: none; }
-.know-pillar-num { font-size: 40px; font-weight: 700; color: var(--orange); opacity: .35; line-height: 1; margin-bottom: 16px; }
-.know-pillar-head { font-size: 22px; font-weight: 500; color: var(--text-900); margin-bottom: 10px; line-height: 1.3; }
-.know-pillar-body { font-size: 14px; color: var(--text-500); line-height: 1.7; }
+.know-pillar::before { content: ''; position: absolute; inset: 0; z-index: 0; background: #FFA202; transform: scaleY(0); transform-origin: bottom; transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1); }
+.know-pillar:hover::before { transform: scaleY(1); transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1); }
+.know-pillar-head { font-size: 22px; font-weight: 600; color: var(--text-900); line-height: 1.3; position: relative; z-index: 1; transition: opacity 0.3s ease, transform 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
+.know-pillar:hover .know-pillar-head { opacity: 0; transform: translateY(-14px); transition: opacity 0.3s ease, transform 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
+.know-pillar-reveal { position: absolute; inset: 0; padding: 32px; z-index: 1; display: flex; align-items: center; justify-content: center; transform: translateY(100%); transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1); }
+.know-pillar:hover .know-pillar-reveal { transform: translateY(0); transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1); }
+.know-pillar-body { font-size: 16px; color: var(--text-900); line-height: 1.7; text-align: center; }
 
 /* ─── Trusted By ─── */
 .trusted { background: var(--bg-light); }
@@ -523,7 +529,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 /* ─── Sticky Scroll Narrative ─── */
 .sticky-scroll-wrap { position: relative; height: 320vh; }
 .sticky-scroll-scene { position: sticky; top: 64px; }
-.know-pillar { perspective: 900px; transform-style: preserve-3d; will-change: transform, opacity; }
+.know-pillar { will-change: transform, opacity; }
 
 /* ─── Card Deck Fan ─── */
 .suggested-card { will-change: transform, opacity; transform-origin: bottom center; }
@@ -563,7 +569,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero-cta-primary, .hero-cta, .spotlight-cta, .trusted-cta,
 .business-audit-cta, .modal-continue, .nav-contact { will-change: transform; }
 .hero-bg-pattern, .hero-content { will-change: transform; }
-.insight-card, .suggested-card, .know-pillar { will-change: transform; }
+.insight-card, .suggested-card { will-change: transform; }
 
 /* ─── Hamburger Button ─── */
 .nav-hamburger {
@@ -625,8 +631,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .spotlight-headline { font-size: 28px; }
 
   /* Know SEI */
+  .know-sei-header { grid-template-columns: 1fr; gap: 20px; }
+  .know-sei-header .section-headline { margin-bottom: 0; }
   .know-sei-grid { grid-template-columns: 1fr 1fr; }
-  .know-pillar { border-right: none; border-bottom: 1px solid var(--border); }
+  .know-pillar { border-right: none; border-bottom: 1px solid var(--border); min-height: 280px; }
   .know-pillar:nth-child(odd) { border-right: 1px solid var(--border); }
   .know-pillar:nth-last-child(-n+2) { border-bottom: none; }
 
@@ -675,8 +683,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 /* ─── Responsive: Small Mobile ─── */
 @media (max-width: 480px) {
   .know-sei-grid { grid-template-columns: 1fr; }
-  .know-pillar { border-right: none !important; }
-  .know-pillar:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .know-pillar { border-right: none !important; border-bottom: 1px solid var(--border); min-height: 240px; }
   .know-pillar:last-child { border-bottom: none; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero-headline { font-size: 34px; }

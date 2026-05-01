@@ -140,7 +140,7 @@ export default function Animations({ personalized = false }: Props) {
 
     /* ── 7. 3D CARD TILT ───────────────────────────────────────────── */
     function initCardTilt() {
-      document.querySelectorAll('.insight-card, .suggested-card, .know-pillar').forEach(card => {
+      document.querySelectorAll('.insight-card, .suggested-card').forEach(card => {
         card.addEventListener('mousemove', e => {
           const r = (card as HTMLElement).getBoundingClientRect()
           const x = ((e as MouseEvent).clientX - r.left) / r.width - 0.5
