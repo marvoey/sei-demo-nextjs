@@ -45,6 +45,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
+img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
 
@@ -127,6 +128,17 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   background: var(--navy); min-height: 620px; display: flex;
   align-items: center; position: relative; overflow: hidden;
 }
+.hero-personalized {
+  background: var(--navy); min-height: 540px; display: flex;
+  align-items: center; position: relative; overflow: hidden;
+}
+.hero-personalized .hero-bg-pattern { opacity: 0.6; }
+.hero-personalized .hero-headline { font-size: 72px; font-weight: 900; max-width: 760px; letter-spacing: -0.03em; }
+.hero-personalized .hero-subheadline { font-size: 22px; max-width: 620px; }
+.hero-bg-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0.22; z-index: 0;
+}
 .hero-bg-pattern {
   position: absolute; inset: 0;
   background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
@@ -134,9 +146,15 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   background-size: 80px 80px;
 }
 .hero-glow {
-  position: absolute; top: -200px; right: -100px; width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(190,0,0,.12) 0%, transparent 65%);
-  pointer-events: none;
+  position: fixed; top: 0; left: 0; width: 28px; height: 28px;
+  background: radial-gradient(circle, rgba(220,30,0,1) 0%, rgba(190,0,0,0.6) 60%, transparent 100%);
+  pointer-events: none; z-index: 9999; border-radius: 50%; filter: blur(2px);
+}
+.hero-glow-trail {
+  position: fixed; top: 0; left: 0; width: 28px; height: 28px;
+  background: radial-gradient(circle, rgba(190,0,0,0.55) 0%, rgba(190,0,0,0.15) 60%, transparent 100%);
+  pointer-events: none; z-index: 9998; border-radius: 50%; filter: blur(5px);
+  transform-origin: center;
 }
 .hero-content {
   position: relative; z-index: 2; padding: 100px 40px;
@@ -178,6 +196,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border-radius: 4px; aspect-ratio: 16/10; display: flex; align-items: center;
   justify-content: center; position: relative; overflow: hidden;
 }
+.spotlight-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .spotlight-image-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.5) 0%, transparent 60%); }
 .spotlight-image-label { position: absolute; bottom: 16px; left: 16px; color: rgba(255,255,255,.7); font-size: 12px; font-style: italic; }
 .spotlight-play {
@@ -216,6 +235,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .trusted-header-sub { font-size: 18px; color: var(--text-500); max-width: 620px; line-height: 1.65; }
 .trusted-card { background: white; border-radius: 4px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
 .trusted-card-visual { background: linear-gradient(135deg,#eef2ff 0%,#e0e7ff 100%); display: flex; align-items: center; justify-content: center; min-height: 320px; padding: 40px; }
+.trusted-card-img { max-width: 260px; max-height: 130px; object-fit: contain; }
 .trusted-card-logo { font-size: 26px; font-weight: 700; color: #4B5563; letter-spacing: -.02em; text-align: center; }
 .trusted-card-content { padding: 48px 44px; display: flex; flex-direction: column; gap: 16px; }
 .trusted-card-tag { font-size: 12px; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: .08em; }
@@ -229,6 +249,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .trusted-cta:hover { text-decoration: underline; }
 .trusted-logos { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border); }
 .trusted-logo { font-size: 13px; font-weight: 600; color: var(--text-300); }
+.trusted-logo-img { height: 30px; width: auto; max-width: 140px; object-fit: contain; opacity: 0.55; filter: grayscale(1); transition: opacity 0.2s, filter 0.2s; }
+.trusted-logo-img:hover { opacity: 1; filter: grayscale(0); }
 
 /* ─── By Numbers ─── */
 .by-numbers { background: white; border-top: 1px solid var(--border); }
@@ -251,17 +273,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .insights-all-cta:hover { text-decoration: underline; }
 .insights-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
 .insight-card { background: white; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
-.insight-card-image { aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
-.insight-card-image.color-1 { background: linear-gradient(135deg,#1e293b 0%,#0f172a 100%); }
-.insight-card-image.color-2 { background: linear-gradient(135deg,#1e3a5f 0%,#0f1f38 100%); }
-.insight-card-image.color-3 { background: linear-gradient(135deg,#2d1b4e 0%,#1a0f2e 100%); }
-.insight-card-image.color-4 { background: linear-gradient(135deg,#1a2e1a 0%,#0f1f0f 100%); }
-.insight-avatar {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 700; color: white; letter-spacing: .02em;
-}
+.insight-card-image { aspect-ratio: 4/3; overflow: hidden; background: #1e293b; }
+.insight-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .insight-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
 .insight-type { font-size: 12px; font-weight: 500; color: var(--text-300); }
 .insight-category { font-size: 12px; font-weight: 600; color: var(--red); }
@@ -407,11 +420,24 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .fade-in { animation: fadeIn .4s ease forwards; }
 
+/* ─── Skeleton Shimmer ─── */
+@keyframes shimmer {
+  0% { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e4e4e4 50%, #f0f0f0 75%);
+  background-size: 600px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 2px;
+  color: transparent !important;
+}
+
 /* ─── Scroll Progress Bar ─── */
 .scroll-progress {
   position: fixed; top: 0; left: 0; width: 100%; height: 3px;
   background: var(--red); transform-origin: left; transform: scaleX(0);
-  z-index: 9999; pointer-events: none;
+  z-index: 9999; pointer-events: none; transition: transform 0.05s linear;
 }
 
 /* ─── Nav Scroll ─── */

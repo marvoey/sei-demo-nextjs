@@ -4,7 +4,7 @@ export default function Nav() {
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <a href="/" className="nav-logo">SEI<span>.</span></a>
+        <a href="/" className="nav-logo"><img src="/logo.svg" alt="SEI" style={{ height: '28px', width: 'auto' }} /></a>
         <div className="nav-links">
           {NAV_LINKS.map(link => <a key={link} href="#">{link}</a>)}
         </div>

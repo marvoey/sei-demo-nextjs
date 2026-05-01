@@ -35,8 +35,9 @@ export default async function Home() {
         eyebrow="SEI Enterprise"
         headline="Financial value is created between the lines."
         subheadline="Explore integrated solutions that align investing, operations, and insight at enterprise scale."
+        video="/hero-video.mp4"
       />
-      <ExecutiveSpotlight data={DEFAULT_SPOTLIGHT} />
+      <ExecutiveSpotlight data={DEFAULT_SPOTLIGHT} image="/dakota-live-interview.png" />
       <GetToKnowSEI />
       <TrustedBy />
       <ByNumbers />

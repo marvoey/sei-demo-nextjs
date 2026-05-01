@@ -34,7 +34,7 @@ export default async function PersonalizedPage({
         eyebrow={isBD ? undefined : 'SEI Enterprise'}
         headline={content.hero.headline}
         subheadline={content.hero.subheadline}
-        bold={isBD}
+        personalized
         genericHeadline="Grow your practice with confidence."
         genericSubheadline="Explore integrated solutions designed for financial advisors at every stage."
         ctas={
@@ -58,6 +58,7 @@ export default async function PersonalizedPage({
         <ExecutiveSpotlight
           data={content.executiveSpotlight}
           imageLabel={isBD ? 'Dakota Live: Advisor Stories' : 'Inside SEI: Dakota Live'}
+          image="/dakota-live-interview.png"
         />
       )}
       <ExpertInsights />

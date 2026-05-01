@@ -1,10 +1,8 @@
-const COLORS = ['color-1', 'color-2', 'color-3', 'color-4'] as const
-
 const ARTICLES = [
-  { type: 'Podcast', category: 'Asset Management', initials: 'SS', author: 'Sneha Shah', authorTitle: 'Executive Vice President, Head of New Business Ventures', headline: 'Building the Next Wave.', excerpt: 'How AI, tokenization, and innovation drive new wealth tech business models.' },
-  { type: 'Podcast', category: 'Financial Advisors', initials: 'ML', author: 'Michael Lane', authorTitle: 'Executive Vice President, Head of Asset Management', headline: 'Human-led, AI-Enabled Advice.', excerpt: 'How AI can scale advice while advisors build trust, insight, and better client outcomes.' },
-  { type: 'Article', category: 'Banks & Wealth Managers', initials: 'JB', author: 'Jeffrey Benfield', authorTitle: 'Chief Product Officer', headline: 'Harnessing momentum in wealth.', excerpt: 'What it takes to modernize client experience while transaction volumes and expectations rise.' },
-  { type: 'Article', category: 'Asset Management', initials: 'SL', author: 'Sean Lawlor', authorTitle: 'Head of Traditional Investment Manager Services', headline: 'Data transparency: The new currency in asset management.', excerpt: 'Why data transparency is critical to scalable, resilient operations in asset management.' },
+  { type: 'Podcast', category: 'Asset Management', img: '/sneha-shah.jpg', author: 'Sneha Shah', authorTitle: 'Executive Vice President, Head of New Business Ventures', headline: 'Building the Next Wave.', excerpt: 'How AI, tokenization, and innovation drive new wealth tech business models.' },
+  { type: 'Podcast', category: 'Financial Advisors', img: '/michael-lane.jpg', author: 'Michael Lane', authorTitle: 'Executive Vice President, Head of Asset Management', headline: 'Human-led, AI-Enabled Advice.', excerpt: 'How AI can scale advice while advisors build trust, insight, and better client outcomes.' },
+  { type: 'Article', category: 'Banks & Wealth Managers', img: '/jeffrey-benfield.jpg', author: 'Jeffrey Benfield', authorTitle: 'Chief Product Officer', headline: 'Harnessing momentum in wealth.', excerpt: 'What it takes to modernize client experience while transaction volumes and expectations rise.' },
+  { type: 'Article', category: 'Asset Management', img: '/sean-lawlor.jpg', author: 'Sean Lawlor', authorTitle: 'Head of Traditional Investment Manager Services', headline: 'Data transparency: The new currency in asset management.', excerpt: 'Why data transparency is critical to scalable, resilient operations in asset management.' },
 ]
 
 export default function ExpertInsights() {
@@ -19,10 +17,10 @@ export default function ExpertInsights() {
           <a href="#" className="insights-all-cta">View all insights &rarr;</a>
         </div>
         <div className="insights-grid">
-          {ARTICLES.map((a, i) => (
-            <div key={a.author} className="insight-card">
-              <div className={`insight-card-image ${COLORS[i]}`}>
-                <div className="insight-avatar">{a.initials}</div>
+          {ARTICLES.map(a => (
+            <div key={a.author} className="insight-card stagger-child">
+              <div className="insight-card-image">
+                <img src={a.img} alt={a.author} />
               </div>
               <div className="insight-card-body">
                 <span className="insight-type">{a.type}</span>

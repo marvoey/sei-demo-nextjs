@@ -90,18 +90,23 @@ export default function Animations({ personalized = false }: Props) {
 
     /* ── 3. CURSOR-FOLLOWING GLOW ──────────────────────────────────── */
     function initCursorGlow() {
-      const hero = document.querySelector('.hero') as HTMLElement | null
-      const glow = hero?.querySelector('.hero-glow') as HTMLElement | null
-      if (!glow || !hero) return
-      let tx = hero.offsetWidth * 0.7, ty = hero.offsetHeight * 0.3
-      let cx = tx, cy = ty
-      hero.addEventListener('mousemove', e => {
-        const r = hero.getBoundingClientRect()
-        tx = e.clientX - r.left; ty = e.clientY - r.top
+      const glow = document.querySelector('.hero-glow') as HTMLElement | null
+      const trail = document.querySelector('.hero-glow-trail') as HTMLElement | null
+      if (!glow) return
+      let tx: number | null = null, ty: number | null = null
+      let cx = -100, cy = -100
+      let tcx = -100, tcy = -100
+      document.addEventListener('mousemove', e => {
+        if (tx === null) { cx = e.clientX; cy = e.clientY; tcx = cx; tcy = cy }
+        tx = e.clientX; ty = e.clientY
       }, { passive: true })
       ;(function loop() {
-        cx += (tx - cx) * 0.055; cy += (ty - cy) * 0.055
-        glow.style.transform = `translate(${cx - 350}px, ${cy - 350}px)`
+        if (tx !== null) {
+          cx += (tx - cx) * 0.12; cy += (ty! - cy) * 0.12
+          tcx += (tx - tcx) * 0.055; tcy += (ty! - tcy) * 0.055
+        }
+        glow.style.transform = `translate(${cx - 14}px, ${cy - 14}px)`
+        if (trail) trail.style.transform = `translate(${tcx - 14}px, ${tcy - 14}px)`
         requestAnimationFrame(loop)
       })()
     }
@@ -204,9 +209,17 @@ export default function Animations({ personalized = false }: Props) {
 
     /* ── 9. PAGE-IN CASCADE ────────────────────────────────────────── */
     function initPageIn() {
+      // Always clean up any leftover flash from soft navigation
+      document.querySelectorAll('.page-flash').forEach(el => {
+        const f = el as HTMLElement
+        f.style.transition = 'opacity 0.35s ease'
+        f.style.opacity = '0'
+        setTimeout(() => f.remove(), 400)
+      })
+
       if (!sessionStorage.getItem('sei_morphed')) return
       sessionStorage.removeItem('sei_morphed')
-      const hero = document.querySelector('.hero') as HTMLElement | null
+      const hero = document.querySelector('.hero, .hero-personalized') as HTMLElement | null
       if (hero) {
         hero.style.opacity = '0'
         requestAnimationFrame(() => {
@@ -246,10 +259,6 @@ export default function Animations({ personalized = false }: Props) {
             if (frame > final.length * rate + 4) { clearInterval(iv); el.textContent = final }
           }, 26)
         }, delay)
-      }
-      if (personalized) {
-        const hl = document.querySelector('.hero-headline') as HTMLElement | null
-        if (hl) scrambleEl(hl, 680)
       }
       ;(window as unknown as Record<string, unknown>).__scrambleEl = scrambleEl
     }
@@ -460,7 +469,7 @@ export default function Animations({ personalized = false }: Props) {
     function initGlitchToggle() {
       document.querySelectorAll('[data-ba-toggle]').forEach(btn => {
         btn.addEventListener('click', () => {
-          const hero = document.querySelector('.hero') as HTMLElement | null
+          const hero = document.querySelector('.hero, .hero-personalized') as HTMLElement | null
           if (!hero) return
           hero.classList.remove('glitch-active')
           void (hero as HTMLElement).offsetWidth
@@ -472,7 +481,7 @@ export default function Animations({ personalized = false }: Props) {
 
     /* ── 18. HERO PARALLAX DEPTH ───────────────────────────────────── */
     function initHeroParallax() {
-      const hero = document.querySelector('.hero') as HTMLElement | null
+      const hero = document.querySelector('.hero, .hero-personalized') as HTMLElement | null
       if (!hero) return
       const pattern = hero.querySelector('.hero-bg-pattern') as HTMLElement | null
       const content = hero.querySelector('.hero-content') as HTMLElement | null
@@ -494,19 +503,19 @@ export default function Animations({ personalized = false }: Props) {
     /* ── INIT ──────────────────────────────────────────────────────── */
     initTextScramble()
     initHeroParallax()
-    initParticleMesh()
+    // initParticleMesh()
     initHeadlineReveal()
     initCursorGlow()
     initScrollProgress()
     initNav()
-    initStickyScroll()
+    // initStickyScroll()
     initCardDeckFan()
     initSplitEntrance()
     initScrollReveals()
     initOdometer()
     initCardTilt()
     initMagneticCursor()
-    initSpotlightCursor()
+    // initSpotlightCursor()
     initBeforeAfterToggle()
     initGlitchToggle()
     initPageIn()

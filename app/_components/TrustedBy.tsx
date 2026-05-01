@@ -1,4 +1,9 @@
-const LOGOS = ['Summit Wealth Group', 'First Financial Bank', 'TCW', 'Kent State University']
+const LOGOS = [
+  { src: '/summit-wealth-group.png', alt: 'Summit Wealth Group' },
+  { src: '/first-financial-bank.png', alt: 'First Financial Bank' },
+  { src: '/tcw.png', alt: 'TCW' },
+  { src: '/kent-state-university.jpg', alt: 'Kent State University' },
+]
 
 export default function TrustedBy() {
   return (
@@ -10,7 +15,7 @@ export default function TrustedBy() {
         </div>
         <div className="trusted-card">
           <div className="trusted-card-visual">
-            <div className="trusted-card-logo">Summit Wealth Group</div>
+            <img src="/summit-wealth-group.png" alt="Summit Wealth Group" className="trusted-card-img" />
           </div>
           <div className="trusted-card-content">
             <div className="trusted-card-tag">RIA / Wealth Management</div>
@@ -33,7 +38,9 @@ export default function TrustedBy() {
           </div>
         </div>
         <div className="trusted-logos">
-          {LOGOS.map(l => <span key={l} className="trusted-logo">{l}</span>)}
+          {LOGOS.map(l => (
+            <img key={l.alt} src={l.src} alt={l.alt} className="trusted-logo-img" />
+          ))}
         </div>
       </div>
     </section>

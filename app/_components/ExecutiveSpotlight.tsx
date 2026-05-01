@@ -3,14 +3,16 @@ import type { SpotlightData } from '@/lib/types'
 interface Props {
   data: SpotlightData
   imageLabel?: string
+  image?: string
 }
 
-export default function ExecutiveSpotlight({ data, imageLabel = 'Inside SEI: Dakota Live' }: Props) {
+export default function ExecutiveSpotlight({ data, imageLabel = 'Inside SEI: Dakota Live', image }: Props) {
   return (
     <section className="spotlight section">
       <div className="container">
         <div className="spotlight-inner">
           <div className="spotlight-image">
+            {image && <img src={image} alt={imageLabel} className="spotlight-img" />}
             <div className="spotlight-image-overlay" />
             <button className="spotlight-play" aria-label="Play video">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
