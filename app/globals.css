@@ -649,6 +649,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   /* By Numbers */
   .by-numbers-header { grid-template-columns: 1fr; gap: 16px; }
   .by-numbers-grid { grid-template-columns: 1fr 1fr; }
+  .by-numbers-bars-area { display: none; }
   .by-numbers-stat { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px; }
   .by-numbers-stat:first-child { padding-left: 20px; }
   .by-numbers-stat:last-child { padding-right: 20px; }
