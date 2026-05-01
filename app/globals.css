@@ -287,12 +287,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .by-numbers-label { font-size: 14px; color: var(--text-900); line-height: 1.5; }
 .by-numbers-short { font-size: 11px; color: var(--text-300); margin-top: 4px; }
 .by-numbers-bars-area { height: 220px; overflow: hidden; }
-.by-numbers-bars-grid { display: grid; grid-template-columns: repeat(4,1fr); height: 100%; }
-.by-numbers-bar-col { height: 100%; display: flex; align-items: flex-end; padding: 0 40px; }
+.by-numbers-bars-grid { display: grid; grid-template-columns: repeat(4,1fr); height: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 40px; box-sizing: border-box; }
+.by-numbers-bar-col { height: 100%; display: flex; align-items: flex-end; padding: 0 10px; }
 .by-numbers-bar-col:first-child { padding-left: 0; }
 .by-numbers-bar-col:last-child { padding-right: 0; }
-.by-numbers-bar { width: 100%; height: var(--bar-h, 60%); background: #FDE4CC; border-top: 2px solid var(--orange); transform: scaleY(0); transform-origin: bottom; transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--bar-delay, 0s); }
-.by-numbers-bar--animated { transform: scaleY(1); }
+.by-numbers-bar { width: 100%; height: var(--bar-h, 60%); background: #FDE4CC; border-top: 2px solid var(--orange); transform: scaleY(0); transform-origin: bottom; }
+.by-numbers-bar--animated { transform: scaleY(1); transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--bar-delay, 0s); }
 
 /* ─── Expert Insights ─── */
 .insights { background: var(--bg-light); }
@@ -648,12 +648,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .by-numbers-stat:nth-last-child(-n+2) { border-bottom: none; }
   .by-numbers-val { font-size: 40px; }
   .by-numbers-bars-area { height: 140px; }
-  .by-numbers-bars-grid { grid-template-columns: 1fr 1fr; }
-  .by-numbers-bar-col { padding: 0 20px; }
-  .by-numbers-bar-col:first-child { padding-left: 0; }
-  .by-numbers-bar-col:last-child { padding-right: 0; }
-  .by-numbers-bar-col:nth-child(even) { padding-right: 0; }
-  .by-numbers-bar-col:nth-child(odd) { padding-left: 0; }
+  .by-numbers-bars-grid { grid-template-columns: 1fr 1fr; padding: 0 20px; }
 
   /* Expert Insights */
   .insights-grid { grid-template-columns: 1fr; }

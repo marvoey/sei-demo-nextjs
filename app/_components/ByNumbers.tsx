@@ -16,7 +16,7 @@ export default function ByNumbers() {
     const el = sectionRef.current
     if (!el) return
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setAnimated(true); observer.disconnect() } },
+      ([entry]) => setAnimated(entry.isIntersecting),
       { threshold: 0.2 }
     )
     observer.observe(el)
@@ -54,17 +54,15 @@ export default function ByNumbers() {
         </div>
       </div>
       <div className="by-numbers-bars-area">
-        <div className="container">
-          <div className="by-numbers-bars-grid">
-            {STATS.map((s, i) => (
-              <div key={s.val} className="by-numbers-bar-col">
-                <div
-                  className={`by-numbers-bar${animated ? ' by-numbers-bar--animated' : ''}`}
-                  style={{ '--bar-h': `${s.barHeight}%`, '--bar-delay': `${i * 0.12}s` } as CSSProperties}
-                />
-              </div>
-            ))}
-          </div>
+        <div className="by-numbers-bars-grid">
+          {STATS.map((s, i) => (
+            <div key={s.val} className="by-numbers-bar-col">
+              <div
+                className={`by-numbers-bar${animated ? ' by-numbers-bar--animated' : ''}`}
+                style={{ '--bar-h': `${s.barHeight}%`, '--bar-delay': `${i * 0.12}s` } as CSSProperties}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

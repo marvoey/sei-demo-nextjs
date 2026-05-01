@@ -9,7 +9,6 @@ import TrustedBy from './_components/TrustedBy'
 import ByNumbers from './_components/ByNumbers'
 import ExpertInsights from './_components/ExpertInsights'
 import StayConnected from './_components/StayConnected'
-import PersonalizationModal from './_components/PersonalizationModal'
 import WelcomeBar from './_components/WelcomeBar'
 
 const DEFAULT_SPOTLIGHT = {
@@ -44,7 +43,6 @@ export default async function Home() {
       <ExpertInsights />
       <StayConnected />
       <Footer />
-      <PersonalizationModal show={!segment} />
       <Animations />
     </>
   )
