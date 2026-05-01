@@ -18,8 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.variable}>
       <body>
         {children}
-        <div className="hero-glow-trail" />
-        <div className="hero-glow" />
       </body>
     </html>
   )

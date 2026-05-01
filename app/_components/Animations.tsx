@@ -88,29 +88,6 @@ export default function Animations({ personalized = false }: Props) {
       })
     }
 
-    /* ── 3. CURSOR-FOLLOWING GLOW ──────────────────────────────────── */
-    function initCursorGlow() {
-      const glow = document.querySelector('.hero-glow') as HTMLElement | null
-      const trail = document.querySelector('.hero-glow-trail') as HTMLElement | null
-      if (!glow) return
-      let tx: number | null = null, ty: number | null = null
-      let cx = -100, cy = -100
-      let tcx = -100, tcy = -100
-      document.addEventListener('mousemove', e => {
-        if (tx === null) { cx = e.clientX; cy = e.clientY; tcx = cx; tcy = cy }
-        tx = e.clientX; ty = e.clientY
-      }, { passive: true })
-      ;(function loop() {
-        if (tx !== null) {
-          cx += (tx - cx) * 0.12; cy += (ty! - cy) * 0.12
-          tcx += (tx - tcx) * 0.055; tcy += (ty! - tcy) * 0.055
-        }
-        glow.style.transform = `translate(${cx - 14}px, ${cy - 14}px)`
-        if (trail) trail.style.transform = `translate(${tcx - 14}px, ${tcy - 14}px)`
-        requestAnimationFrame(loop)
-      })()
-    }
-
     /* ── 4. SCROLL PROGRESS BAR ────────────────────────────────────── */
     function initScrollProgress() {
       const bar = document.createElement('div')
@@ -505,7 +482,6 @@ export default function Animations({ personalized = false }: Props) {
     initHeroParallax()
     // initParticleMesh()
     initHeadlineReveal()
-    initCursorGlow()
     initScrollProgress()
     initNav()
     // initStickyScroll()
