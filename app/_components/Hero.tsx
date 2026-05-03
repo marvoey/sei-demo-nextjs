@@ -7,10 +7,13 @@ interface HeroProps {
   genericSubheadline?: string
   video?: string
   personalized?: boolean
+  variant?: 'orange'
 }
 
-export default function Hero({ eyebrow, headline, subheadline, ctas, genericHeadline, genericSubheadline, video, personalized }: HeroProps) {
-  const sectionClass = personalized ? 'hero-personalized section' : 'hero'
+export default function Hero({ eyebrow, headline, subheadline, ctas, genericHeadline, genericSubheadline, video, personalized, variant }: HeroProps) {
+  const sectionClass = personalized
+    ? 'hero-personalized section'
+    : variant === 'orange' ? 'hero hero--orange' : 'hero'
   return (
     <section className={sectionClass}>
       {video && <video className="hero-bg-img" src={video} autoPlay muted loop playsInline aria-hidden="true" />}

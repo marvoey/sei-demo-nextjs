@@ -24,15 +24,9 @@ export default function BDBreakawayPage() {
       <Hero
         headline={hero.headline}
         subheadline={hero.subheadline}
-        video="/hero-video.mp4"
-        ctas={
-          <a href="#" className="hero-cta hero-cta-primary">
-            See the story
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-        }
+        video="/journey-2/Hero-Video.mp4"
+        variant="orange"
+        ctas={<></>}
       />
       <ExecutiveSpotlight
         data={executiveSpotlight}
@@ -40,7 +34,7 @@ export default function BDBreakawayPage() {
         imageLabel="Dakota Live: Randy Morris, CFP®"
       />
       {suggestedContent && <SuggestedContent cards={suggestedContent} />}
-      {businessAudit && <BusinessAudit data={businessAudit} />}
+      {businessAudit && <BusinessAudit data={businessAudit} backgroundImage="/journey-2/OrangeSection.png" />}
       <ExpertInsights />
       <Footer />
       <Animations />
