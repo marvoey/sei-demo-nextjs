@@ -34,9 +34,10 @@ export interface SuggestedCard {
 }
 
 export interface PersonalizationPrompt {
-  label: string
+  label?: string
   question: string
   options: string[]
+  storageKey?: string
 }
 
 export interface BusinessAuditData {

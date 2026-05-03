@@ -56,9 +56,10 @@
         }
       ],
       "personalizationPrompt": {
-        "label": "Personalize Your Experience",
         "question": "What type of transition is your firm considering?",
-        "options": ["Going RIA", "Buying and Merging", "Navigating Succession", "Selling Your Practice"]
+        "options": ["Going RIA", "Buying and Merging", "Navigating Succession", "Selling Your Practice"],
+        "storageKey": "sei_transition_type",
+        "triggerDelayMs": 6000
       },
       "businessAudit": {
         "headline": "Business Audit",

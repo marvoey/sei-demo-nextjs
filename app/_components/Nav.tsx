@@ -1,7 +1,14 @@
 'use client'
 import { useState } from 'react'
 
-const NAV_LINKS = ['Solutions', 'Investments', 'Who We Serve', 'Our Insights', 'About SEI']
+const NAV_LINKS = [
+  { label: 'Solutions', href: '#' },
+  { label: 'Investments', href: '#' },
+  { label: 'Who We Serve', href: '#' },
+  { label: 'Our Insights', href: '#' },
+  { label: 'About SEI', href: '#' },
+  { label: 'Journey 2', href: '/2-bd-breakaway' },
+]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -11,7 +18,7 @@ export default function Nav() {
       <div className="nav-inner">
         <a href="/" className="nav-logo"><img src="/logo.svg" alt="SEI" style={{ height: '28px', width: 'auto' }} /></a>
         <div className={`nav-links${open ? ' nav-links--open' : ''}`}>
-          {NAV_LINKS.map(link => <a key={link} href="#">{link}</a>)}
+          {NAV_LINKS.map(link => <a key={link.label} href={link.href}>{link.label}</a>)}
           <div className="nav-utility nav-utility--mobile">
             <a href="#" className="nav-login">Client Login</a>
             <span className="nav-sep">/</span>
