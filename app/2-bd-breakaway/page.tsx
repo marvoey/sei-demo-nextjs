@@ -1,6 +1,6 @@
 import Nav from '@/app/_components/Nav'
 import Hero from '@/app/_components/Hero'
-import ExecutiveSpotlight from '@/app/_components/ExecutiveSpotlight'
+import ExecutiveSpotlightBD from '@/app/_components/ExecutiveSpotlightBD'
 import SuggestedContent from '@/app/_components/SuggestedContent'
 import BusinessAudit from '@/app/_components/BusinessAudit'
 import ExpertInsights from '@/app/_components/ExpertInsights'
@@ -28,7 +28,11 @@ export default function BDBreakawayPage() {
         variant="orange"
         ctas={<></>}
       />
-      <ExecutiveSpotlight data={executiveSpotlight} />
+      <ExecutiveSpotlightBD
+        data={executiveSpotlight}
+        image="/journey-2/Image-Randy-Morris-CFP.png"
+        overlayTitle="Partnering with purpose"
+      />
       {suggestedContent && <SuggestedContent cards={suggestedContent} />}
       {businessAudit && <BusinessAudit data={businessAudit} backgroundImage="/journey-2/OrangeSection.png" />}
       <ExpertInsights />
