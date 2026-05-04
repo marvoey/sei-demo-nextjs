@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 
-const DURATION = 5000
+const DURATION = 10000
 
 const TABS = [
   {
@@ -54,7 +54,6 @@ export default function RecommendedContent() {
         </h2>
 
         <div className="rec-layout">
-          {/* Sidebar */}
           <div className="rec-sidebar">
             {TABS.map((t, i) => (
               <button
@@ -64,13 +63,17 @@ export default function RecommendedContent() {
               >
                 <div className="rec-tab-label">{t.label}</div>
                 <div className="rec-tab-sub">{t.sublabel}</div>
+                {i === active && (
+                  <span
+                    className="rec-tab-progress"
+                    key={active}
+                    style={{ animationDuration: `${DURATION}ms` }}
+                  />
+                )}
               </button>
             ))}
             <div className="rec-sidebar-actions">
-              <button
-                className="rec-action-link"
-                onClick={() => setMeetOpen(true)}
-              >
+              <button className="rec-action-link" onClick={() => setMeetOpen(true)}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="2" y="3" width="20" height="14" rx="2" />
                   <path d="M8 21h8M12 17v4" />
@@ -88,7 +91,6 @@ export default function RecommendedContent() {
             </div>
           </div>
 
-          {/* Panel */}
           <div className="rec-panel" key={active}>
             {tab.video ? (
               <div className="rec-video-wrap">
@@ -115,7 +117,6 @@ export default function RecommendedContent() {
         </div>
       </div>
 
-      {/* Meet with SEI modal */}
       {meetOpen && (
         <div className="rec-meet-overlay" onClick={() => setMeetOpen(false)}>
           <div className="rec-meet-panel" onClick={e => e.stopPropagation()}>
@@ -143,7 +144,6 @@ export default function RecommendedContent() {
         </div>
       )}
 
-      {/* Fixed assistant button */}
       <button className="rec-assistant-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />

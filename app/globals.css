@@ -302,7 +302,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .trusted { background: var(--bg-light); }
 .trusted-header { margin-bottom: 40px; }
 .trusted-header-headline { font-size: 24px; font-weight: 600; color: var(--text-900); margin-bottom: 10px; }
-.trusted-header-sub { font-size: 18px; color: var(--text-500); max-width: 620px; line-height: 1.65; }
+.trusted-header-sub { font-size: 18px; color: var(--text-500); line-height: 1.65; }
 .trusted-card-tag { font-size: 12px; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: .08em; }
 .trusted-card-body { font-size: 15px; color: var(--text-500); line-height: 1.75; }
 .trusted-stat { display: flex; flex-direction: column; gap: 6px; }
@@ -832,6 +832,15 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .insight-bd-body { padding: 12px 14px; gap: 4px; }
   .insight-bd-excerpt { display: none; }
 
+  /* Recommended Content */
+  .rec-headline { font-size: 22px; margin-bottom: 16px; }
+  .rec-layout { flex-direction: column; min-height: unset; }
+  .rec-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+  .rec-sidebar-actions { margin-top: 0; }
+  .rec-tab { padding: 12px 16px; }
+  .rec-placeholder { min-height: 260px; padding: 28px 20px; }
+  .rec-video-wrap { min-height: 240px; }
+
   /* Stay Connected */
   .stay-inner { grid-template-columns: 1fr; gap: 32px; }
   .stay-headline { font-size: 32px; }
@@ -1004,6 +1013,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 .rec-tab {
+  position: relative; overflow: hidden;
   text-align: left; border-left: 3px solid transparent;
   padding: 14px 20px; background: none; cursor: pointer;
   transition: background 0.15s;
@@ -1017,6 +1027,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 .rec-tab-label { font-size: 13px; font-weight: 600; color: var(--text-900); }
 .rec-tab-sub { font-size: 12px; color: var(--text-500); margin-top: 3px; line-height: 1.4; }
+
+.rec-tab-progress {
+  position: absolute; bottom: 0; left: 0; height: 3px; width: 0;
+  background: #06b6d4; animation: trustedProgress linear forwards;
+}
+
 
 .rec-sidebar-actions {
   margin-top: auto; padding: 16px 20px;
@@ -1123,6 +1139,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 /* ═══════════════════════════════════════════════════════════════
    TRUSTED BY RIA
    ═══════════════════════════════════════════════════════════════ */
+
+/* Cyan theme overrides for TrustedByRIA */
+.trusted-ria .trusted-card-tag { color: #06b6d4; }
+.trusted-ria .trusted-cta { color: #06b6d4; }
+.trusted-ria .trusted-tab-progress { background: #06b6d4; }
+.trusted-ria .trusted-ria-stat { border-left-color: #06b6d4; }
 
 .trusted-ria-inner {
   display: flex; flex-direction: row; gap: 48px; align-items: stretch;

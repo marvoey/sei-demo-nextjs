@@ -5,7 +5,46 @@ const DURATION = 5000
 
 const TABS = [
   {
-    logo: '/summit-wealth-group.png',
+    logo: '/journey-2/trusted/Stratos%20Investment%20Management.png',
+    alt: 'Stratos Investment Management',
+    tag: 'RIA / Wealth Management',
+    headline: 'Stratos Investment Management',
+    body: 'Stratos partnered with SEI to build a scalable RIA platform that supports its advisors with integrated technology, streamlined operations, and a flexible investment infrastructure — enabling the firm to grow its practice without sacrificing the personalized service its clients expect.',
+    stats: [
+      { val: '$8B+', label: 'Assets under advisement' },
+      { val: 'Multi-custodial', label: 'Operating model' },
+      { val: '10+', label: 'Years in partnership' },
+    ],
+    cta: 'Consultation with SEI to evaluate',
+  },
+  {
+    logo: '/journey-2/trusted/Diversified.png',
+    alt: 'Diversified',
+    tag: 'Financial Planning / RIA',
+    headline: 'Diversified',
+    body: 'Diversified leveraged SEI\'s wealth platform to unify its financial planning and investment management capabilities — giving advisors a single operating environment to deliver comprehensive, goals-based planning at scale across a growing national client base.',
+    stats: [
+      { val: '$12B+', label: 'Assets under advisement' },
+      { val: 'Nationwide', label: 'Advisor network' },
+      { val: '15+', label: 'Years in partnership' },
+    ],
+    cta: 'Consultation with SEI to evaluate',
+  },
+  {
+    logo: '/journey-2/trusted/merit_logo.png',
+    alt: 'Merit Financial Advisors',
+    tag: 'RIA / Financial Advisory',
+    headline: 'Merit Financial Advisors',
+    body: 'Merit Financial Advisors partnered with SEI to modernize its operational foundation as the firm scaled through organic growth and acquisitions — integrating technology, compliance infrastructure, and investment management into a unified platform built for enterprise-grade efficiency.',
+    stats: [
+      { val: '$16B+', label: 'Assets under management' },
+      { val: '150+', label: 'Advisors supported' },
+      { val: 'Rapid growth', label: 'M&A integration model' },
+    ],
+    cta: 'Consultation with SEI to evaluate',
+  },
+  {
+    logo: '/journey-2/trusted/Summit%20Wealth%20Group.png',
     alt: 'Summit Wealth Group',
     tag: 'RIA / Wealth Management',
     headline: 'Summit Wealth Group',
@@ -14,45 +53,6 @@ const TABS = [
       { val: '$9B+', label: 'Assets under advisement' },
       { val: 'Multi-custodial', label: 'Operating model' },
       { val: '15+', label: 'Years in partnership' },
-    ],
-    cta: 'Consultation with SEI to evaluate',
-  },
-  {
-    logo: '/first-financial-bank.png',
-    alt: 'First Financial Trust',
-    tag: 'Banking / Trust Services',
-    headline: 'First Financial Trust',
-    body: 'First Financial Trust partnered with SEI to modernize its trust and investment management operations — migrating to SEI\'s unified platform to deliver more consistent, scalable service to high-net-worth clients and institutional accounts across its regional footprint.',
-    stats: [
-      { val: '$2.4B+', label: 'Assets under management' },
-      { val: '40+', label: 'Years of partnership' },
-      { val: 'Regional', label: 'Multi-state footprint' },
-    ],
-    cta: 'Consultation with SEI to evaluate',
-  },
-  {
-    logo: '/tcw.png',
-    alt: 'TCW Group',
-    tag: 'Institutional Asset Management',
-    headline: 'TCW Group',
-    body: 'TCW leveraged SEI\'s institutional infrastructure to streamline fund administration and investment operations across asset classes — enabling their portfolio management team to focus on generating alpha while SEI handled operational complexity at scale.',
-    stats: [
-      { val: '$220B+', label: 'Assets under management' },
-      { val: 'Global', label: 'Multi-asset operations' },
-      { val: '3', label: 'Continents served' },
-    ],
-    cta: 'Consultation with SEI to evaluate',
-  },
-  {
-    logo: '/kent-state-university.jpg',
-    alt: 'Kent State University',
-    tag: 'Higher Education / Endowment',
-    headline: 'Kent State University',
-    body: 'Kent State University\'s endowment partnered with SEI to strengthen investment governance, reduce operational complexity, and align long-term portfolio strategy with institutional objectives — building a sustainable foundation for growth.',
-    stats: [
-      { val: '$460M+', label: 'Endowment assets managed' },
-      { val: '20+', label: 'Years of partnership' },
-      { val: 'OCIO', label: 'Outsourced CIO model' },
     ],
     cta: 'Consultation with SEI to evaluate',
   },
@@ -71,10 +71,10 @@ export default function TrustedByRIA() {
   const tab = TABS[active]
 
   return (
-    <section className="trusted section">
+    <section className="trusted trusted-ria section">
       <div className="container">
         <div className="trusted-header">
-          <div style={{ color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '13px', fontWeight: 700, marginBottom: '14px' }}>
+          <div style={{ color: '#00C4F8', fontSize: '24px', fontStyle: 'normal', fontWeight: 500, lineHeight: '20px', letterSpacing: '1.25px', textTransform: 'uppercase', marginBottom: '14px' }}>
             Trusted by Leading Financial Institutions
           </div>
           <p className="trusted-header-sub">
