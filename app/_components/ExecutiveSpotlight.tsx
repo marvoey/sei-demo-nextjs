@@ -1,45 +1,103 @@
+'use client'
+
+import { useRef, useState, useEffect } from 'react'
 import type { SpotlightData } from '@/lib/types'
+
+const VIDEOS = [
+  { id: 'FjqXhetY45A', label: 'Dakota Live', cover: '/journey-2/Image (Inside SEI_ Dakota Live Interview).png' },
+  { id: 'FjqXhetY45A', label: 'Dakota Live', cover: '/journey-2/Image (Inside SEI_ Dakota Live Interview).png' },
+  { id: 'FjqXhetY45A', label: 'Dakota Live', cover: '/journey-2/Image (Inside SEI_ Dakota Live Interview).png' },
+]
 
 interface Props {
   data: SpotlightData
-  imageLabel?: string
-  image?: string
 }
 
-export default function ExecutiveSpotlight({ data, imageLabel = 'Inside SEI: Dakota Live', image }: Props) {
+export default function ExecutiveSpotlight({ data }: Props) {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(1)
+  const [playing, setPlaying] = useState<number | null>(null)
+
+  const scrollToCard = (index: number) => {
+    const track = trackRef.current
+    if (!track) return
+    const card = track.children[index] as HTMLElement
+    if (!card) return
+    const scrollLeft = card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2
+    track.scrollTo({ left: scrollLeft, behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    scrollToCard(active)
+  }, [active])
+
+  const activateCard = (i: number) => {
+    setPlaying(null)
+    setActive(i)
+  }
+
+  const handlePlayClick = (i: number, e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (i !== active) {
+      setPlaying(null)
+      setActive(i)
+      setTimeout(() => setPlaying(i), 480)
+    } else {
+      setPlaying(i)
+    }
+  }
+
   return (
-    <section className="spotlight section">
-      <div className="container">
-        <div className="spotlight-inner">
-          <div className="spotlight-image">
-            {image && <img src={image} alt={imageLabel} className="spotlight-img" />}
-            <div className="spotlight-image-overlay" />
-            <button className="spotlight-play" aria-label="Play video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-                <polygon points="5,3 19,12 5,21" />
-              </svg>
-            </button>
-            <span className="spotlight-image-label">{imageLabel}</span>
+    <>
+      <section className="spotlight">
+        <div className="section-eyebrow">{data.eyebrow}</div>
+
+        <div className="spotlight-carousel-outer">
+          <div ref={trackRef} className="spotlight-carousel-track">
+            {VIDEOS.map((video, i) => (
+              <div
+                key={i}
+                className={`spotlight-card${i === active ? ' spotlight-card--active' : ''}`}
+                onClick={() => i !== active && activateCard(i)}
+              >
+                {playing === i ? (
+                  <iframe
+                    className="spotlight-card-iframe"
+                    src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`}
+                    allow="autoplay; encrypted-media; fullscreen"
+                    allowFullScreen
+                    title={video.label}
+                  />
+                ) : (
+                  <>
+                    <img src={video.cover} alt={video.label} className="spotlight-card-img" />
+                    <div className="spotlight-card-overlay" />
+                    <button
+                      className="spotlight-card-play"
+                      aria-label="Play video"
+                      onClick={(e) => handlePlayClick(i, e)}
+                    >
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                        <polygon points="5,3 19,12 5,21" />
+                      </svg>
+                    </button>
+                    <span className="spotlight-card-label">{video.label}</span>
+                  </>
+                )}
+              </div>
+            ))}
           </div>
-          <div className="spotlight-meta">
-            <div className="section-eyebrow">{data.eyebrow}</div>
-            <div className="spotlight-label">{data.tag}</div>
+        </div>
+      </section>
+
+      <div className="spotlight-below">
+        <div className="container">
+          <div className="spotlight-text">
             <h2 className="spotlight-headline">{data.headline}</h2>
             <p className="spotlight-body">{data.body}</p>
-            <blockquote className="spotlight-quote">&ldquo;{data.quote}&rdquo;</blockquote>
-            <div className="spotlight-attribution">
-              <span className="spotlight-attribution-name">{data.attribution}</span>
-              <span className="spotlight-attribution-title">{data.attributionTitle}</span>
-            </div>
-            <a href="#" className="spotlight-cta">
-              {data.cta}
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
           </div>
         </div>
       </div>
-    </section>
+    </>
   )
 }

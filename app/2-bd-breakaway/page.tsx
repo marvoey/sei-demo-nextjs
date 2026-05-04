@@ -28,11 +28,7 @@ export default function BDBreakawayPage() {
         variant="orange"
         ctas={<></>}
       />
-      <ExecutiveSpotlight
-        data={executiveSpotlight}
-        image="/dakota-live-interview.png"
-        imageLabel="Dakota Live: Randy Morris, CFP®"
-      />
+      <ExecutiveSpotlight data={executiveSpotlight} />
       {suggestedContent && <SuggestedContent cards={suggestedContent} />}
       {businessAudit && <BusinessAudit data={businessAudit} backgroundImage="/journey-2/OrangeSection.png" />}
       <ExpertInsights />

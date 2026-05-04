@@ -55,11 +55,7 @@ export default async function PersonalizedPage({
       />
       {content.suggestedContent && <SuggestedContent cards={content.suggestedContent} />}
       {content.executiveSpotlight && (
-        <ExecutiveSpotlight
-          data={content.executiveSpotlight}
-          imageLabel={isBD ? 'Dakota Live: Advisor Stories' : 'Inside SEI: Dakota Live'}
-          image="/dakota-live-interview.png"
-        />
+        <ExecutiveSpotlight data={content.executiveSpotlight} />
       )}
       <ExpertInsights />
       {content.personalizationPrompt && <PersonalizeFurther data={content.personalizationPrompt} />}

@@ -36,7 +36,7 @@ export default async function Home() {
         subheadline="Explore integrated solutions that align investing, operations, and insight at enterprise scale."
         video="/hero-video.mp4"
       />
-      <ExecutiveSpotlight data={DEFAULT_SPOTLIGHT} image="/dakota-live-interview.png" />
+      <ExecutiveSpotlight data={DEFAULT_SPOTLIGHT} />
       <GetToKnowSEI />
       <TrustedBy />
       <ByNumbers />
