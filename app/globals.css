@@ -833,13 +833,19 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .insight-bd-excerpt { display: none; }
 
   /* Recommended Content */
-  .rec-headline { font-size: 22px; margin-bottom: 16px; }
+  .rec-panel-headline { font-size: 20px; margin-bottom: 12px; }
   .rec-layout { flex-direction: column; min-height: unset; }
   .rec-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
   .rec-sidebar-actions { margin-top: 0; }
   .rec-tab { padding: 12px 16px; }
   .rec-placeholder { min-height: 260px; padding: 28px 20px; }
   .rec-video-wrap { min-height: 240px; }
+  .rec-specialist { padding: 20px 16px; gap: 16px; }
+  .rec-specialist-card-top { flex-direction: column; gap: 20px; }
+  .rec-specialist-right { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 16px; }
+  .rec-booking-body { flex-direction: column; }
+  .rec-booking-cal-col { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 16px; }
+  .rec-booking-time-col { width: 100%; padding: 20px 16px; }
 
   /* Stay Connected */
   .stay-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -994,9 +1000,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
 }
 
-.rec-headline {
-  font-size: 34px; font-weight: 700; color: var(--text-900);
-  line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 32px;
+.rec-panel-headline {
+  font-size: 28px; font-weight: 700; color: var(--text-900);
+  line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px;
 }
 
 .rec-headline-em { font-style: normal; font-weight: inherit; }
@@ -1136,6 +1142,373 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 .rec-meet-submit:hover { background: #9a0000; }
 
+/* Meet with SEI — specialist match panel */
+.rec-action-link--meet-active { border-left: 3px solid var(--red); padding-left: 8px; margin-left: -11px; }
+
+.rec-specialist {
+  padding: 32px 40px; display: flex; flex-direction: column; gap: 20px; flex: 1;
+}
+
+.rec-specialist-intro {
+  font-size: 15px; color: var(--text-500); line-height: 1.7; max-width: 680px;
+}
+
+.rec-specialist-pills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+
+.rec-specialist-pill {
+  font-size: 12px; font-weight: 600; color: var(--text-900);
+  border: 1px solid var(--border); border-radius: 2px;
+  padding: 5px 12px; background: var(--bg-light);
+}
+
+.rec-schedule-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--red); color: white; font-size: 15px; font-weight: 700;
+  padding: 13px 24px; border-radius: 2px; border: none; cursor: pointer;
+  font-family: inherit; transition: background 0.15s; align-self: flex-start;
+}
+
+.rec-schedule-btn:hover { background: #9a0000; }
+
+.rec-specialist-card {
+  border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+}
+
+.rec-specialist-card-top {
+  display: flex; gap: 32px; padding: 24px 28px;
+}
+
+.rec-specialist-left {
+  display: flex; gap: 16px; align-items: flex-start; flex: 1;
+}
+
+.rec-specialist-photo-wrap {
+  position: relative; flex-shrink: 0;
+}
+
+.rec-specialist-photo {
+  width: 64px; height: 64px; border-radius: 4px;
+  object-fit: cover; display: block;
+}
+
+.rec-specialist-status {
+  position: absolute; bottom: 2px; right: 2px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #22c55e; border: 2px solid white;
+}
+
+.rec-specialist-info { display: flex; flex-direction: column; gap: 4px; }
+
+.rec-specialist-name {
+  font-size: 17px; font-weight: 700; color: var(--text-900);
+}
+
+.rec-specialist-title {
+  font-size: 13px; color: var(--text-500);
+}
+
+.rec-specialist-loc {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px; color: var(--text-500); margin-top: 2px;
+}
+
+.rec-specialist-right {
+  flex: 1; border-left: 1px solid var(--border); padding-left: 28px;
+}
+
+.rec-specialist-why-label {
+  font-size: 10px; font-weight: 700; color: var(--text-500);
+  text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;
+}
+
+.rec-specialist-why-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 13px; color: var(--text-900); margin-bottom: 8px; line-height: 1.4;
+}
+
+.rec-specialist-why-item svg { flex-shrink: 0; color: var(--red); margin-top: 1px; }
+
+.rec-specialist-avail {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 28px; background: #fff8f0;
+  border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--text-500);
+}
+
+.rec-specialist-avail strong { color: var(--text-900); }
+
+.rec-specialist-avail svg { color: var(--orange); flex-shrink: 0; }
+
+.rec-specialist-book {
+  margin-left: auto; font-size: 12px; font-weight: 700; color: var(--orange);
+  background: none; border: none; cursor: pointer; font-family: inherit;
+  letter-spacing: 0.04em;
+}
+
+.rec-specialist-book:hover { text-decoration: underline; }
+
+.rec-specialist-confirmed {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 28px; background: #f0fdf4;
+  border-top: 1px solid #bbf7d0;
+  font-size: 13px; color: #166534; line-height: 1.5;
+}
+
+.rec-specialist-confirmed svg { flex-shrink: 0; color: #16a34a; margin-top: 1px; }
+.rec-specialist-confirmed strong { font-weight: 700; }
+
+.rec-booking-confirm-appt {
+  font-size: 15px; font-weight: 700; color: var(--text-900);
+  margin-bottom: 8px; margin-top: -4px;
+}
+
+/* Booking modal */
+.rec-booking-overlay {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(0,0,0,0.55);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+
+.rec-booking-modal {
+  background: white; width: min(720px, 100%);
+  border-radius: 6px; box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+  overflow: hidden; display: flex; flex-direction: column;
+  max-height: 90vh; overflow-y: auto;
+}
+
+.rec-booking-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 28px; border-bottom: 1px solid var(--border);
+}
+
+.rec-booking-title {
+  font-size: 17px; font-weight: 700; color: var(--text-900);
+}
+
+.rec-booking-close {
+  background: none; border: none; cursor: pointer;
+  color: var(--text-500); display: flex; align-items: center;
+  transition: color 0.15s;
+}
+
+.rec-booking-close:hover { color: var(--text-900); }
+
+/* Step progress */
+.rec-booking-steps {
+  display: flex; align-items: flex-start;
+  padding: 24px 28px; border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.rec-booking-step-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  flex: 1; position: relative;
+}
+
+.rec-booking-step-wrap:not(:last-child) .rec-booking-step-line {
+  position: absolute; top: 14px; left: 50%; width: 100%;
+  height: 1px; background: var(--border); z-index: 0;
+}
+
+.rec-booking-step-circle {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  border: 2px solid var(--border); color: var(--text-500);
+  background: white; position: relative; z-index: 1;
+  transition: all 0.2s;
+}
+
+.rec-booking-step-circle--done {
+  background: var(--orange); border-color: var(--orange); color: white;
+}
+
+.rec-booking-step-circle--active {
+  border-color: var(--orange); color: var(--orange);
+}
+
+.rec-booking-step-label {
+  font-size: 11px; color: var(--text-500); margin-top: 6px; text-align: center;
+}
+
+.rec-booking-step-label--active { color: var(--text-900); font-weight: 600; }
+
+/* Booking body: calendar + time */
+.rec-booking-body {
+  display: flex; gap: 0; flex: 1;
+}
+
+.rec-booking-cal-col {
+  flex: 1; padding: 24px 28px; border-right: 1px solid var(--border);
+}
+
+.rec-booking-time-col {
+  width: 260px; padding: 24px 24px; flex-shrink: 0;
+}
+
+.rec-booking-col-label {
+  font-size: 13px; font-weight: 700; color: var(--text-900); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+.rec-booking-tz {
+  font-size: 11px; font-weight: 600; color: var(--text-500);
+  background: var(--bg-light); border: 1px solid var(--border);
+  padding: 1px 6px; border-radius: 2px;
+}
+
+.rec-booking-cal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rec-booking-month-label {
+  font-size: 14px; font-weight: 600; color: var(--text-900);
+}
+
+.rec-booking-nav {
+  background: none; border: 1px solid var(--border); color: var(--text-500);
+  width: 28px; height: 28px; border-radius: 2px; cursor: pointer;
+  font-size: 16px; display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.rec-booking-nav:hover { border-color: var(--text-900); color: var(--text-900); }
+
+.rec-booking-day-names {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+
+.rec-booking-day-name {
+  font-size: 11px; font-weight: 600; color: var(--text-500);
+  text-align: center; padding: 4px 0;
+}
+
+.rec-booking-cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px;
+}
+
+.rec-booking-day {
+  aspect-ratio: 1; border-radius: 50%; font-size: 13px; font-weight: 500;
+  color: var(--text-900); background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.12s, color 0.12s;
+}
+
+.rec-booking-day:hover:not(:disabled) { background: var(--bg-light); }
+
+.rec-booking-day--selected {
+  background: var(--orange) !important; color: white !important; font-weight: 700;
+}
+
+.rec-booking-day--empty { cursor: default; }
+
+.rec-booking-date-label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--text-500); margin-top: 12px;
+}
+
+.rec-booking-date-label svg { color: var(--orange); flex-shrink: 0; }
+
+.rec-booking-time-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+
+.rec-booking-time {
+  font-size: 13px; font-weight: 500; color: var(--text-900);
+  border: 1px solid var(--border); border-radius: 2px;
+  padding: 8px 4px; background: white; cursor: pointer;
+  text-align: center; transition: border-color 0.12s, color 0.12s;
+}
+
+.rec-booking-time:hover:not(:disabled) { border-color: var(--orange); color: var(--orange); }
+
+.rec-booking-time--selected {
+  border-color: var(--orange); background: #fff5eb; color: var(--orange); font-weight: 700;
+}
+
+.rec-booking-time--unavail {
+  color: #d1d5db; cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* Step 3: Details form */
+.rec-booking-body--form {
+  flex-direction: column; padding: 28px;
+}
+
+.rec-booking-form-intro {
+  font-size: 14px; color: var(--text-500); margin-bottom: 20px; line-height: 1.6;
+}
+
+.rec-booking-form {
+  display: flex; flex-direction: column; gap: 12px; max-width: 480px;
+}
+
+.rec-booking-input {
+  border: 1px solid var(--border); padding: 10px 14px;
+  border-radius: 2px; font-size: 14px; font-family: inherit;
+  color: var(--text-900); transition: border-color 0.15s;
+}
+
+.rec-booking-input:focus { outline: none; border-color: var(--orange); }
+
+.rec-booking-textarea {
+  border: 1px solid var(--border); padding: 10px 14px;
+  border-radius: 2px; font-size: 14px; font-family: inherit;
+  color: var(--text-900); resize: vertical; transition: border-color 0.15s;
+}
+
+.rec-booking-textarea:focus { outline: none; border-color: var(--orange); }
+
+/* Step 4: Confirm */
+.rec-booking-body--confirm {
+  flex-direction: column; align-items: center; justify-content: center;
+  padding: 48px 28px; text-align: center;
+}
+
+.rec-booking-confirm-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: #f0fdf4; color: #22c55e;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.rec-booking-confirm-title {
+  font-size: 20px; font-weight: 700; color: var(--text-900); margin-bottom: 12px;
+}
+
+.rec-booking-confirm-body {
+  font-size: 14px; color: var(--text-500); line-height: 1.7; max-width: 400px;
+}
+
+/* Booking footer */
+.rec-booking-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 28px; border-top: 1px solid var(--border);
+  background: var(--bg-light);
+}
+
+.rec-booking-back {
+  background: none; border: none; font-size: 14px; font-weight: 600;
+  color: var(--text-500); cursor: pointer; font-family: inherit;
+  padding: 0; transition: color 0.15s;
+}
+
+.rec-booking-back:hover { color: var(--text-900); }
+
+.rec-booking-continue {
+  background: var(--orange); color: white; font-size: 14px; font-weight: 700;
+  padding: 11px 24px; border-radius: 2px; border: none; cursor: pointer;
+  font-family: inherit; transition: background 0.15s;
+}
+
+.rec-booking-continue:hover { background: #e06600; }
+
 /* ═══════════════════════════════════════════════════════════════
    TRUSTED BY RIA
    ═══════════════════════════════════════════════════════════════ */
@@ -1184,33 +1557,33 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 .consult-banner {
   display: flex; flex-direction: row;
-  background: #06b6d4; overflow: hidden; min-height: 160px;
+  background: #00C4F8; overflow: hidden; min-height: 180px;
 }
 
 .consult-banner-image {
-  width: 360px; flex-shrink: 0;
-  background-size: cover; background-position: center;
+  width: 44%; flex-shrink: 0;
+  background-size: cover; background-position: center top;
 }
 
 .consult-banner-content {
-  flex: 1; padding: 40px 48px;
+  flex: 1; padding: 36px 48px;
   display: flex; flex-direction: column; justify-content: center; gap: 10px;
 }
 
-.consult-banner-headline { font-size: 22px; font-weight: 600; color: white; }
+.consult-banner-headline { font-size: 22px; font-weight: 600; color: white; line-height: 1.3; }
 .consult-banner-name { font-size: 15px; color: rgba(255,255,255,0.75); }
 
 .consult-banner-btn {
-  background: white; color: #0e7490; font-size: 14px; font-weight: 700;
+  background: white; color: var(--text-900); font-size: 14px; font-weight: 700;
   display: inline-flex; align-items: center;
-  padding: 10px 24px; border-radius: 2px;
+  padding: 11px 28px; border-radius: 2px;
   align-self: flex-start; transition: opacity 0.15s;
 }
 
-.consult-banner-btn:hover { opacity: 0.9; }
+.consult-banner-btn:hover { opacity: 0.88; }
 
 .consult-banner-icon {
-  width: 100px; flex-shrink: 0;
+  width: 110px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
 
