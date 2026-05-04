@@ -3,7 +3,7 @@ import Hero from '@/app/_components/Hero'
 import ExecutiveSpotlightBD from '@/app/_components/ExecutiveSpotlightBD'
 import SuggestedContent from '@/app/_components/SuggestedContent'
 import BusinessAudit from '@/app/_components/BusinessAudit'
-import ExpertInsights from '@/app/_components/ExpertInsights'
+import ExpertInsightsBD from '@/app/_components/ExpertInsightsBD'
 import Footer from '@/app/_components/Footer'
 import Animations from '@/app/_components/Animations'
 import BDTransitionModal from '@/app/_components/BDTransitionModal'
@@ -35,7 +35,7 @@ export default function BDBreakawayPage() {
       />
       {suggestedContent && <SuggestedContent cards={suggestedContent} />}
       {businessAudit && <BusinessAudit data={businessAudit} backgroundImage="/journey-2/OrangeSection.png" />}
-      <ExpertInsights />
+      <ExpertInsightsBD />
       <Footer />
       <Animations />
       {personalizationPrompt && (

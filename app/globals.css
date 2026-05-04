@@ -393,6 +393,46 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .insight-author { font-size: 14px; font-weight: 600; color: var(--text-900); padding-top: 14px; border-top: 1px solid var(--border); margin-top: 12px; }
 .insight-author-title { font-size: 12px; color: var(--text-500); margin-top: 2px; }
 
+/* ─── Expert Insights BD (Breakaway) ─── */
+.insights-bd { background: var(--bg-light); }
+.insights-bd-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; }
+.insights-bd-headline { font-size: 36px; font-weight: 500; color: var(--text-900); letter-spacing: -.015em; }
+.insights-bd-all-cta { font-size: 14px; font-weight: 600; color: var(--red); flex-shrink: 0; }
+.insights-bd-all-cta:hover { text-decoration: underline; }
+.insights-bd-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+
+.insight-bd-card {
+  background: white; border-radius: 6px; overflow: hidden;
+  display: flex; flex-direction: column; cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.insight-bd-card:hover {
+  box-shadow: 0 0 0 2px var(--red), 0 0 32px rgba(190,0,0,0.2), 0 12px 40px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+}
+
+.insight-bd-image { position: relative; height: 210px; overflow: hidden; background: #1e293b; flex-shrink: 0; }
+.insight-bd-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease; }
+.insight-bd-card:hover .insight-bd-image img { transform: scale(1.03); }
+.insight-bd-gradient { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 45%, rgba(0,0,0,0.72) 100%); pointer-events: none; }
+
+.insight-bd-badge {
+  position: absolute; top: 12px; left: 12px;
+  display: flex; align-items: center; gap: 5px;
+  background: white; border-radius: 100px; padding: 5px 12px;
+  font-size: 12px; font-weight: 600; color: var(--text-900);
+}
+
+.insight-bd-person { position: absolute; bottom: 14px; left: 14px; right: 14px; }
+.insight-bd-name { font-size: 15px; font-weight: 600; color: white; }
+.insight-bd-role { font-size: 11px; color: rgba(255,255,255,0.72); margin-top: 3px; line-height: 1.4; }
+
+.insight-bd-body { padding: 18px 20px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.insight-bd-category { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.08em; }
+.insight-bd-headline { font-size: 15px; font-weight: 700; color: var(--text-900); line-height: 1.4; margin-top: 2px; }
+.insight-bd-excerpt { font-size: 12px; color: var(--text-500); line-height: 1.65; flex: 1; }
+
 /* ─── Stay Connected ─── */
 .stay-connected {
   background: #3c3c46 url('/StayConnected.png') center/cover no-repeat;
@@ -778,6 +818,19 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .insight-card-body { padding: 14px; gap: 4px; }
   .insight-excerpt { display: none; }
   .insight-author { padding-top: 8px; margin-top: 4px; }
+
+  /* Expert Insights BD */
+  .insights-bd-grid { grid-template-columns: 1fr; gap: 12px; }
+  .insights-bd-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .insights-bd-headline { font-size: 28px; }
+  .insight-bd-card { flex-direction: row; min-height: 120px; }
+  .insight-bd-image { width: 110px; flex-shrink: 0; aspect-ratio: unset; }
+  .insight-bd-badge { top: 8px; left: 8px; padding: 4px 9px; font-size: 11px; }
+  .insight-bd-person { bottom: 8px; left: 8px; right: 8px; }
+  .insight-bd-name { font-size: 13px; }
+  .insight-bd-role { display: none; }
+  .insight-bd-body { padding: 12px 14px; gap: 4px; }
+  .insight-bd-excerpt { display: none; }
 
   /* Stay Connected */
   .stay-inner { grid-template-columns: 1fr; gap: 32px; }
