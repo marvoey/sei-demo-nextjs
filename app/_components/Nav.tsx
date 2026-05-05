@@ -1,5 +1,6 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 const NAV_LINKS: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
   { label: 'Solutions', href: '#' },
@@ -23,8 +24,45 @@ const NAV_LINKS: { label: string; href: string; children?: { label: string; href
   },
 ]
 
+const PersonIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.315 0-10 1.655-10 5v1h20v-1c0-3.345-6.685-5-10-5z" />
+  </svg>
+)
+
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const [isJennifer, setIsJennifer] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    if (pathname === '/2-bd-breakaway') {
+      try {
+        const stored = localStorage.getItem('sei_specialist_appointment')
+        if (stored) setIsJennifer(true)
+      } catch {}
+    } else {
+      setIsJennifer(false)
+    }
+  }, [pathname])
+
+  const utilityRight = isJennifer ? (
+    <>
+      <div className="nav-jennifer-badge">
+        <div className="nav-jennifer-avatar">
+          <PersonIcon />
+        </div>
+        <span className="nav-jennifer-name">Jennifer</span>
+      </div>
+      <a href="#" className="nav-contact">Contact Us</a>
+    </>
+  ) : (
+    <>
+      <a href="#" className="nav-login">Client Login</a>
+      <span className="nav-sep">/</span>
+      <a href="#" className="nav-contact">Contact Us</a>
+    </>
+  )
 
   return (
     <nav className="nav">
@@ -58,9 +96,7 @@ export default function Nav() {
           </div>
         </div>
         <div className="nav-utility nav-utility--desktop">
-          <a href="#" className="nav-login">Client Login</a>
-          <span className="nav-sep">/</span>
-          <a href="#" className="nav-contact">Contact Us</a>
+          {utilityRight}
         </div>
         <button
           className="nav-hamburger"

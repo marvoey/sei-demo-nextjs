@@ -7,6 +7,7 @@ import ExpertInsightsBD from '@/app/_components/ExpertInsightsBD'
 import Footer from '@/app/_components/Footer'
 import Animations from '@/app/_components/Animations'
 import BDTransitionModal from '@/app/_components/BDTransitionModal'
+import PartnerMatchWrapper from '@/app/_components/PartnerMatchWrapper'
 import content from '@/lib/content.json'
 
 const { hero, executiveSpotlight, suggestedContent, businessAudit, personalizationPrompt } =
@@ -21,21 +22,30 @@ export default function BDBreakawayPage() {
   return (
     <>
       <Nav />
-      <Hero
-        headline={hero.headline}
-        subheadline={hero.subheadline}
-        video="/journey-2/Hero-Video.mp4"
-        variant="orange"
-        ctas={<></>}
-      />
-      <ExecutiveSpotlightBD
-        data={executiveSpotlight}
-        image="/journey-2/Image-Randy-Morris-CFP.png"
-        overlayTitle="Partnering with purpose"
-      />
-      {suggestedContent && <SuggestedContent cards={suggestedContent} />}
-      {businessAudit && <BusinessAudit data={businessAudit} backgroundImage="/journey-2/OrangeSection.png" />}
-      <ExpertInsightsBD />
+      <PartnerMatchWrapper
+        hero={
+          <Hero
+            headline={hero.headline}
+            subheadline={hero.subheadline}
+            video="/journey-2/Hero-Video.mp4"
+            variant="orange"
+            ctas={<></>}
+          />
+        }
+        rest={
+          <>
+            <ExecutiveSpotlightBD
+              data={executiveSpotlight}
+              image="/journey-2/Image-Randy-Morris-CFP.png"
+              overlayTitle="Partnering with purpose"
+            />
+            {suggestedContent && <SuggestedContent cards={suggestedContent} />}
+            {businessAudit && <BusinessAudit data={businessAudit} backgroundImage="/journey-2/OrangeSection.png" />}
+          </>
+        }
+      >
+        <ExpertInsightsBD />
+      </PartnerMatchWrapper>
       <Footer />
       <Animations />
       {personalizationPrompt && (
