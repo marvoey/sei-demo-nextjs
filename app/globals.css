@@ -1768,7 +1768,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .pe-option-meeting:hover { background: var(--bg-light); }
 
 .pe-etf-section { background: var(--bg-lighter); }
-.pe-etf-left { display: flex; flex-direction: column; justify-content: center; height: 100vh; gap: 20px; }
+.pe-etf-left { display: flex; flex-direction: column; justify-content: center; height: 90vh; gap: 20px; }
 .pe-etf-section-header { display: flex; align-items: center; justify-content: space-between; }
 .pe-etf-section-title { font-size: 20px; font-weight: 700; color: var(--text-900); }
 .pe-etf-tab {
@@ -1792,7 +1792,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .pe-etf-meta span + span { margin-left: 16px; }
 .pe-etf-check { color: var(--text-400); width: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .pe-etf-item.active .pe-etf-check { color: var(--text-900); }
-.pe-radar-wrap { display: flex; justify-content: center; align-items: flex-start; height: 100vh; flex-direction: column; }
+.pe-radar-wrap { display: flex; justify-content: center; align-items: flex-start; height: 88vh; flex-direction: column; }
 
 .pe-portfolio-section { padding: 0 0 56px; background: var(--bg-lighter); }
 .pe-portfolio-box { border: 1px solid var(--border); border-radius: 4px; padding: 28px 32px; background: white; }
