@@ -1876,6 +1876,21 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   from { opacity: 1; }
   to   { opacity: 0; }
 }
+@keyframes partner-item-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes partner-circle-pop {
+  from { transform: scale(0.1); }
+  to   { transform: scale(1); }
+}
+@keyframes partner-check-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes partner-name-bloom {
+  from { color: rgba(255,255,255,0.5); }
+  to   { color: #e09a30; }
+}
 
 .partner-panel { animation: partner-panel-in 0.55s cubic-bezier(0.25, 1, 0.5, 1) both; }
 .partner-panel--exit { animation: partner-panel-out 0.42s cubic-bezier(0.5, 0, 0.75, 0) both; }
@@ -1887,7 +1902,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .partner-hello-text {
   font-size: 20px; font-weight: 500; color: white; letter-spacing: 0.01em;
 }
-.partner-hello-name { font-weight: 700; color: #e09a30; }
+.partner-hello-name {
+  font-weight: 700; color: #e09a30;
+  animation: partner-name-bloom 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: 0.12s;
+}
 
 .partner-match-section {
   background: var(--bg-light); padding: 44px 0;
@@ -1924,7 +1943,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border-radius: 999px; padding: 4px 13px; font-size: 12px;
   font-weight: 500; color: var(--text-700);
   transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), background 0.15s, border-color 0.15s, color 0.15s;
+  animation: partner-item-in 0.4s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: var(--stagger, 0.25s);
 }
+.partner-tag:nth-child(1) { --stagger: 0.24s; }
+.partner-tag:nth-child(2) { --stagger: 0.32s; }
+.partner-tag:nth-child(3) { --stagger: 0.40s; }
+.partner-tag:nth-child(4) { --stagger: 0.48s; }
 .partner-tag:hover {
   transform: translateY(-1px); background: white;
   border-color: var(--border-dark); color: var(--text-900);
@@ -1989,7 +2014,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   background: white; border: 1px solid var(--border);
   border-radius: 4px; padding: 18px 22px;
   transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.15s, border-color 0.15s;
+  animation: partner-item-in 0.45s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: var(--stagger, 0.3s);
 }
+.partner-stat-card:nth-child(1) { --stagger: 0.28s; }
+.partner-stat-card:nth-child(2) { --stagger: 0.37s; }
+.partner-stat-card:nth-child(3) { --stagger: 0.46s; }
+.partner-stat-card:nth-child(4) { --stagger: 0.55s; }
 .partner-stat-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.07);
@@ -2008,6 +2039,29 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .partner-bullet {
   display: flex; align-items: center; gap: 10px;
   font-size: 14px; color: var(--text-700); line-height: 1.4;
+  animation: partner-item-in 0.4s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: var(--stagger, 0.44s);
+}
+.partner-bullet:nth-child(1) { --stagger: 0.44s; }
+.partner-bullet:nth-child(2) { --stagger: 0.52s; }
+.partner-bullet:nth-child(3) { --stagger: 0.60s; }
+.partner-bullet:nth-child(4) { --stagger: 0.68s; }
+.partner-check-circle {
+  transform-origin: 50% 50%;
+  animation: partner-circle-pop 0.35s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: var(--stagger, 0.44s);
+}
+.partner-check-path {
+  stroke-dasharray: 13;
+  stroke-dashoffset: 13;
+  animation: partner-check-draw 0.4s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: calc(var(--stagger, 0.44s) + 0.18s);
+}
+.partner-appt-check {
+  stroke-dasharray: 10;
+  stroke-dashoffset: 10;
+  animation: partner-check-draw 0.4s cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: 0.5s;
 }
 
 /* Community section */
@@ -2137,10 +2191,18 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .partner-toggle-strip,
   .partner-toggle-eyebrow-dot,
   .partner-backdrop,
-  .partner-backdrop--exit {
+  .partner-backdrop--exit,
+  .partner-hello-name,
+  .partner-tag,
+  .partner-stat-card,
+  .partner-bullet,
+  .partner-check-circle,
+  .partner-check-path,
+  .partner-appt-check {
     animation: none;
     opacity: 1;
     transform: none;
+    stroke-dashoffset: 0;
   }
   .partner-panel--exit { opacity: 0; }
   .partner-backdrop--exit { opacity: 0; }

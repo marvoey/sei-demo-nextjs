@@ -7,8 +7,8 @@ interface Appointment { date: string; time: string }
 
 const CheckIcon = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <circle cx="10" cy="10" r="10" fill="#22c55e" />
-    <path d="M5.5 10l3 3L14.5 7" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <circle className="partner-check-circle" cx="10" cy="10" r="10" fill="#22c55e" />
+    <path className="partner-check-path" d="M5.5 10l3 3L14.5 7" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
@@ -18,7 +18,7 @@ const CalendarConfirmedIcon = () => (
     <line x1="16" y1="2" x2="16" y2="6" />
     <line x1="8" y1="2" x2="8" y2="6" />
     <line x1="3" y1="10" x2="21" y2="10" />
-    <path d="M9 16l2 2 4-4" />
+    <path className="partner-appt-check" d="M9 16l2 2 4-4" />
   </svg>
 )
 
