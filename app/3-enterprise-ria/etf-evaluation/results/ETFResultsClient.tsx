@@ -154,7 +154,7 @@ function BarChart({ seiValues }: { seiValues: number[] }) {
   const BASE_Y = TOP_PAD + CHART_H
 
   return (
-    <svg viewBox="0 0 560 220" width="100%" style={{ maxWidth: '620px' }} aria-label="Portfolio comparison bar chart">
+    <svg viewBox="0 0 560 220" width="100%" aria-label="Portfolio comparison bar chart">
       {/* Subtle grid lines */}
       {[50, 100].map(level => {
         const y = BASE_Y - (level / 100) * CHART_H
@@ -303,12 +303,13 @@ export default function ETFResultsClient() {
       {/* ETFs For You — interactive */}
       <section className="pe-etf-section">
         <div className="container">
-          <div className="pe-etf-section-header">
-            <div className="pe-etf-section-title">ETFs For You</div>
-            <button className="pe-etf-tab" type="button">Strategy</button>
-          </div>
           <div className="pe-etf-layout">
-            <div className="pe-etf-list">
+            <div className="pe-etf-left">
+              <div className="pe-etf-section-header">
+                <div className="pe-etf-section-title">ETFs For You</div>
+                <button className="pe-etf-tab" type="button">Strategy</button>
+              </div>
+              <div className="pe-etf-list">
               {ETFS.map(etf => {
                 const isActive = selected.has(etf.ticker)
                 return (
@@ -342,6 +343,7 @@ export default function ETFResultsClient() {
                   </div>
                 )
               })}
+              </div>
             </div>
             <div className="pe-radar-wrap">
               <RadarChart selected={selected} />
