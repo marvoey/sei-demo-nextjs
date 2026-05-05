@@ -1630,4 +1630,203 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin-top: auto;
 }
 
+/* ─── Portfolio Evaluator ─── */
+.pe-hero {
+  position: relative; min-height: 540px; display: flex; align-items: center;
+  background-size: cover; background-position: center; overflow: hidden;
+}
+.pe-hero-content {
+  position: relative; z-index: 1; padding: 100px 40px;
+  max-width: var(--max-w); margin: 0 auto; width: 100%;
+}
+.pe-hero-eyebrow {
+  font-size: 12px; font-weight: 600; color: var(--orange);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;
+}
+.pe-hero-headline {
+  font-size: 72px; font-weight: 800; color: white; line-height: 1.06;
+  max-width: 640px; margin-bottom: 24px; letter-spacing: -0.02em;
+}
+.pe-hero-subheadline {
+  font-size: 18px; color: rgba(255,255,255,.75); max-width: 520px;
+  line-height: 1.65; margin-bottom: 40px;
+}
+.pe-hero-cta {
+  display: inline-flex; align-items: center; background: white;
+  color: var(--text-900); font-size: 15px; font-weight: 600;
+  padding: 13px 28px; border-radius: 2px; transition: background 0.15s;
+}
+.pe-hero-cta:hover { background: rgba(255,255,255,.9); }
+
+.pe-features { padding: 100px 0; background: white; border-top: 1px solid var(--border); }
+.pe-features-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+.pe-features-title {
+  font-size: 40px; font-weight: 600; color: var(--text-900);
+  letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px;
+}
+.pe-features-subtitle { font-size: 16px; color: var(--text-500); line-height: 1.7; }
+.pe-features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 48px 56px; }
+.pe-feature-icon { color: var(--orange); margin-bottom: 14px; }
+.pe-feature-headline { font-size: 16px; font-weight: 600; color: var(--text-900); margin-bottom: 8px; }
+.pe-feature-body { font-size: 14px; color: var(--text-500); line-height: 1.7; }
+
+.pe-research { padding: 100px 0; background: white; border-top: 1px solid var(--border); }
+.pe-research-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.pe-research-title {
+  font-size: 40px; font-weight: 700; color: var(--text-900);
+  letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 20px;
+}
+.pe-research-body { font-size: 16px; color: var(--text-500); line-height: 1.75; margin-bottom: 32px; }
+.pe-research-list { display: flex; flex-direction: column; gap: 16px; list-style: none; padding: 0; margin: 0; }
+.pe-research-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--text-700); font-weight: 500; }
+.pe-research-item-icon { color: var(--orange); flex-shrink: 0; margin-top: 1px; }
+.pe-research-media { position: relative; border-radius: 4px; overflow: hidden; }
+.pe-research-img { width: 100%; display: block; object-fit: cover; }
+.pe-research-trust {
+  position: absolute; bottom: 20px; left: 20px; background: white;
+  border-radius: 4px; padding: 12px 16px; box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+.pe-research-trust-label { font-size: 11px; color: var(--text-500); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+.pe-research-trust-number { font-size: 28px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 2px; }
+.pe-research-trust-sublabel { font-size: 12px; color: var(--text-500); }
+
+@media (max-width: 768px) {
+  .pe-hero-content { padding: 56px 20px; }
+  .pe-hero-headline { font-size: 40px; }
+  .pe-hero-subheadline { font-size: 16px; }
+  .pe-features { padding: 56px 0; }
+  .pe-features-title { font-size: 28px; }
+  .pe-features-grid { grid-template-columns: 1fr; gap: 32px; }
+  .pe-research { padding: 56px 0; }
+  .pe-research-inner { grid-template-columns: 1fr; gap: 40px; }
+  .pe-research-title { font-size: 28px; }
+}
+
 .advisor-tool-cta:hover { text-decoration: underline; }
+
+/* ─── ETF Results Page ─── */
+.pe-res-bar { background: var(--navy); padding: 18px 0; }
+.pe-res-bar-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 40px;
+  font-size: 22px; font-weight: 700; color: white;
+}
+
+.pe-rec-section { background: white; }
+.pe-rec-top { padding: 48px 0 0; }
+.pe-rec-headline {
+  font-size: 40px; font-weight: 700; color: var(--text-900);
+  letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px;
+}
+.pe-rec-sub { font-size: 14px; color: var(--text-500); }
+.pe-rec-form {
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 20px 24px; margin: 28px 0 0; background: var(--bg-light);
+}
+.pe-rec-form-eyebrow {
+  font-size: 11px; font-weight: 700; color: var(--text-500);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
+}
+.pe-rec-form-row { display: flex; align-items: flex-end; gap: 16px; }
+.pe-rec-form-field { display: flex; flex-direction: column; gap: 5px; flex: 1; }
+.pe-rec-form-label { font-size: 12px; font-weight: 500; color: var(--text-700); }
+.pe-rec-form-input {
+  border: 1px solid var(--border-dark); border-radius: 2px; padding: 9px 12px;
+  font-size: 14px; color: var(--text-900); background: white;
+  width: 100%; font-family: inherit; outline: none; transition: border-color 0.15s;
+}
+.pe-rec-form-input:focus { border-color: var(--navy); }
+.pe-rec-form-btn {
+  background: #06B6D4; color: white; font-size: 14px; font-weight: 600;
+  padding: 10px 24px; border-radius: 2px; white-space: nowrap;
+  flex-shrink: 0; transition: background 0.15s;
+}
+.pe-rec-form-btn:hover { background: #0891B2; }
+
+.pe-options-area { background: var(--bg-lighter); border-top: 1px solid var(--border); margin-top: 28px; padding: 32px 0 48px; }
+.pe-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.pe-option-label { font-size: 18px; font-weight: 700; color: var(--text-900); margin-bottom: 14px; }
+.pe-option-inner {
+  background: white; border: 1px solid var(--border); border-radius: 2px; padding: 24px;
+}
+.pe-option-ticker {
+  font-size: 44px; font-weight: 900; color: var(--text-900);
+  letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px;
+}
+.pe-option-name { font-size: 13px; color: var(--text-500); margin-bottom: 22px; line-height: 1.4; }
+.pe-option-actions { display: flex; align-items: center; gap: 12px; }
+.pe-option-buy {
+  background: var(--orange); color: white; font-size: 14px; font-weight: 700;
+  padding: 10px 36px; border-radius: 2px; transition: background 0.15s;
+}
+.pe-option-buy:hover { background: #e56500; }
+.pe-option-meeting {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--border-dark); color: var(--text-700);
+  font-size: 14px; font-weight: 500; padding: 9px 16px;
+  border-radius: 2px; transition: background 0.12s;
+}
+.pe-option-meeting:hover { background: var(--bg-light); }
+
+.pe-etf-section { padding: 56px 0; border-top: 1px solid var(--border); }
+.pe-etf-section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.pe-etf-section-title { font-size: 20px; font-weight: 700; color: var(--text-900); }
+.pe-etf-tab {
+  font-size: 12px; font-weight: 600; color: var(--text-500);
+  border: 1px solid var(--border); padding: 6px 16px; border-radius: 2px;
+}
+.pe-etf-layout { display: grid; grid-template-columns: minmax(260px, 400px) 1fr; gap: 32px; align-items: start; }
+.pe-etf-list { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.pe-etf-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  cursor: pointer; transition: background 0.12s; user-select: none;
+}
+.pe-etf-item:last-child { border-bottom: none; }
+.pe-etf-item:hover { background: var(--bg-light); }
+.pe-etf-item.active { background: var(--bg-lighter); }
+.pe-etf-item-left { display: flex; align-items: center; gap: 14px; }
+.pe-etf-indicator { width: 4px; height: 48px; border-radius: 2px; flex-shrink: 0; }
+.pe-etf-ticker { font-size: 15px; font-weight: 700; color: var(--text-900); margin-bottom: 3px; }
+.pe-etf-name { font-size: 12px; color: var(--text-500); margin-bottom: 5px; line-height: 1.4; }
+.pe-etf-meta { font-size: 11px; color: var(--text-300); }
+.pe-etf-meta span + span { margin-left: 16px; }
+.pe-etf-check { color: var(--text-400); width: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.pe-etf-item.active .pe-etf-check { color: var(--text-900); }
+.pe-radar-wrap { display: flex; justify-content: center; align-items: flex-start; padding-top: 8px; }
+
+.pe-portfolio-section { padding: 0 0 56px; }
+.pe-portfolio-box { border: 1px solid var(--border); border-radius: 4px; padding: 28px 32px; }
+.pe-portfolio-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
+.pe-portfolio-title { font-size: 18px; font-weight: 700; color: var(--text-900); }
+.pe-portfolio-legend { display: flex; flex-direction: row; gap: 20px; align-items: center; }
+.pe-portfolio-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-700); }
+.pe-portfolio-dot { width: 14px; height: 14px; border-radius: 2px; flex-shrink: 0; }
+
+.pe-insights-section { padding: 0 0 80px; border-top: 1px solid var(--border); padding-top: 48px; }
+.pe-insights-title { font-size: 20px; font-weight: 700; color: var(--text-900); margin-bottom: 24px; }
+.pe-insights-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.pe-insight-card { border: 1px solid var(--border); border-radius: 4px; padding: 24px; }
+.pe-insight-top { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.pe-insight-num {
+  width: 32px; height: 32px; background: var(--orange); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800; color: white; flex-shrink: 0;
+}
+.pe-insight-tag {
+  font-size: 11px; font-weight: 700; color: var(--orange);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.pe-insight-headline {
+  font-size: 15px; font-weight: 700; color: var(--text-900);
+  line-height: 1.4; margin-bottom: 10px;
+}
+.pe-insight-body { font-size: 13px; color: var(--text-500); line-height: 1.7; }
+
+@media (max-width: 768px) {
+  .pe-res-bar-inner { padding: 0 20px; }
+  .pe-rec-form-row { flex-direction: column; align-items: stretch; }
+  .pe-options-grid { grid-template-columns: 1fr; }
+  .pe-etf-layout { grid-template-columns: 1fr; }
+  .pe-insights-grid { grid-template-columns: 1fr; }
+  .pe-portfolio-header { flex-direction: column; gap: 16px; }
+}

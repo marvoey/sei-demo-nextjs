@@ -98,10 +98,12 @@
         "label": "Personalize Your Experience",
         "question": "Tell us about your ETF needs",
         "options": [
-          "Understand SEI's investment philosophy and approach.",
           "Evaluate how SEI ETFs fit into our portfolios",
+          "Understand SEI's investment philosophy and approach.",
           "Explore trends and best practices in ETF portfolio construction."
-        ]
+        ],
+        "storageKey": "sei_etf_need",
+        "triggerDelayMs": 6000
       },
       "businessAudit": {
         "headline": "Business Audit",

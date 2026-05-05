@@ -14,6 +14,13 @@ const NAV_LINKS: { label: string; href: string; children?: { label: string; href
       { label: 'Recommendations', href: '/2-bd-breakaway/recommendations' },
     ],
   },
+  {
+    label: 'Journey 3',
+    href: '/3-enterprise-ria',
+    children: [
+      { label: 'Portfolio Evaluator', href: '/3-enterprise-ria/etf-evaluation' },
+    ],
+  },
 ]
 
 export default function Nav() {
