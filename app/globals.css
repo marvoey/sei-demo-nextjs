@@ -1757,11 +1757,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .pe-option-actions { display: flex; align-items: center; gap: 12px; }
 .pe-option-buy {
   background: var(--orange); color: white; font-size: 14px; font-weight: 700;
-  padding: 10px 36px; border-radius: 2px; transition: background 0.15s;
+  padding: 10px 36px; border-radius: 2px; transition: background 0.15s; flex-grow: 1;
 }
 .pe-option-buy:hover { background: #e56500; }
 .pe-option-meeting {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 8px;
+  justify-content: center; flex-grow: 1;
   border: 1px solid var(--border-dark); color: var(--text-700);
   font-size: 14px; font-weight: 500; padding: 9px 16px;
   border-radius: 2px; transition: background 0.12s;
@@ -1809,9 +1810,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .pe-insight-card { border: 1px solid var(--border); border-radius: 4px; padding: 24px; background: white; }
 .pe-insight-top { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .pe-insight-num {
-  width: 32px; height: 32px; background: var(--orange); border-radius: 4px;
+  width: 52px; height: 52px; background: var(--orange); border-radius: 4px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 16px; font-weight: 800; color: white; flex-shrink: 0;
+  font-size: 37px; font-weight: 800; color: white; flex-shrink: 0;
 }
 .pe-insight-tag {
   font-size: 11px; font-weight: 700; color: var(--orange);
